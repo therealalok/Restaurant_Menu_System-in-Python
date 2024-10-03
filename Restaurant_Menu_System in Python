@@ -1,0 +1,33 @@
+print("Welcome to our restaurant!")
+print("Here is the menu of our restaurant.")
+total_amount = 0
+
+
+available_items = {"momo": 180, "pizza": 370, "burger": 210, "chowmein": 170}
+
+while True:
+    order = input("Enter your order: ").lower()
+    
+    if order in available_items:
+        total_amount += available_items[order]
+        print(f"Your order is successfully registered, costing Rs.{available_items[order]}. Your total amount is Rs.{total_amount}.")
+        
+        another_order = input("Do you want to order another item? (yes/no/y/n): ").lower()
+        
+        if another_order == "yes" or another_order == "y":
+            new_order = input("What do you want to order next? ").lower()
+            
+            if new_order in available_items:
+                total_amount += available_items[new_order]
+                print(f"Your order is successfully registered, costing Rs.{available_items[new_order]}. Your total amount is Rs.{total_amount}.")
+            else:
+                print(f"Sorry, {new_order} is not available at our restaurant.")
+        
+        elif another_order == "no" or another_order == "n":
+            print(f"Your total bill is Rs.{total_amount}.")
+            break  
+        
+    else:
+        print(f"Sorry, {order} is not available at our restaurant.")
+
+print(f"Please pay Rs.{total_amount} at the counter. Visit again!")
